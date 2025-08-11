@@ -7,8 +7,6 @@
 Mục đích chính của công cụ này là tăng cường bảo mật mạng cục bộ bằng cách ngăn chặn các cuộc tấn công ARP Spoofing/Poisoning (giả mạo ARP) nhằm vào máy tính của bạn, đảm bảo rằng dữ liệu của bạn luôn được gửi đến Default Gateway (router) thực chứ không phải qua một kẻ tấn công.
 
 ![Lock ARP Tool Screenshot (example)](./screenshot.png)
-*(Lưu ý: Bạn cần tạo một file `screenshot.png` trong cùng thư mục với README này để hình ảnh hiển thị.)*
-
 ---
 
 ## 🚀 Tính năng nổi bật
