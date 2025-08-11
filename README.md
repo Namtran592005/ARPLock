@@ -1,4 +1,4 @@
-# 🛡️ Lock ARP Tool 🛡️
+# ARP Lock
 
 ## Khóa và Khôi phục ARP cho Gateway mặc định trên Windows
 
@@ -19,8 +19,6 @@ Mục đích chính của công cụ này là tăng cường bảo mật mạng 
 *   **Log trực tiếp:** Hiển thị các thao tác và kết quả theo thời gian thực trong cửa sổ ứng dụng.
 *   **Thông báo rõ ràng:** Sử dụng các hộp thoại thông báo để cung cấp phản hồi rõ ràng về các thao tác thành công, thất bại hoặc yêu cầu quyền.
 *   **Yêu cầu quyền Administrator:** Tự động yêu cầu quyền Administrator khi cần thiết để thực hiện các thao tác thay đổi cấu hình mạng.
-*   **Đóng gói thành EXE:** Có thể đóng gói thành một tệp `.exe` duy nhất để dễ dàng di chuyển và sử dụng mà không cần cài đặt Python.
-
 ---
 
 ## 💡 Tại sao cần khóa ARP?
@@ -42,22 +40,7 @@ Bằng cách khóa ARP (đặt static ARP entry) cho Default Gateway, bạn đan
 
 ## ⬇️ Cài đặt và Chạy
 
-### Cách 1: Chạy từ mã nguồn (Dành cho nhà phát triển/người dùng nâng cao)
-
-1.  **Cài đặt Python:** Đảm bảo bạn đã cài đặt [Python 3](https://www.python.org/downloads/) trên hệ thống của mình.
-2.  **Cài đặt PyQt5:** Mở Command Prompt (CMD) hoặc PowerShell và chạy lệnh sau:
-    ```bash
-    pip install PyQt5
-    ```
-3.  **Tải xuống mã nguồn:** Tải tệp `lock_arp_gui.py` và `icon.png` về máy tính của bạn, đặt chúng trong cùng một thư mục.
-4.  **Chạy ứng dụng:** Mở CMD hoặc PowerShell, điều hướng đến thư mục chứa các tệp và chạy lệnh:
-    ```bash
-    python lock_arp_gui.py
-    ```
-
-### Cách 2: Chạy từ tệp EXE đã đóng gói (Dễ dàng nhất)
-
-1.  **Tải xuống tệp EXE:** Tải xuống phiên bản `.exe` đã đóng gói (nếu có sẵn) từ trang phát hành của dự án này.
+1.  **Tải xuống tệp EXE:** Tải xuống phiên bản `.exe` đã đóng gói từ trang phát hành của dự án này.
 2.  **Chạy ứng dụng:** Nhấp đúp vào tệp `.exe`. Khi ứng dụng yêu cầu quyền Administrator (thông qua User Account Control - UAC), hãy đồng ý để nó có thể thực hiện các thao tác ARP.
 
 ---
@@ -81,29 +64,6 @@ Bằng cách khóa ARP (đặt static ARP entry) cho Default Gateway, bạn đan
 
 ---
 
-## 📦 Đóng gói ứng dụng thành tệp EXE (Sử dụng PyInstaller)
-
-Để tạo một tệp `.exe` duy nhất mà không yêu cầu cài đặt Python trên máy tính mục tiêu, bạn có thể sử dụng `PyInstaller`.
-
-1.  **Cài đặt PyInstaller:**
-    ```bash
-    pip install pyinstaller
-    ```
-2.  **Chuẩn bị tệp:** Đảm bảo tệp `lock_arp_gui.py` và `icon.png` nằm trong cùng một thư mục.
-3.  **Chạy lệnh đóng gói:** Mở Command Prompt (CMD) hoặc PowerShell, điều hướng đến thư mục chứa các tệp và chạy lệnh sau:
-    ```bash
-    pyinstaller --onefile --noconsole --uac-admin --icon=icon.png --add-data "icon.png;." lock_arp_gui.py
-    ```
-    *   `--onefile`: Đóng gói tất cả vào một tệp EXE duy nhất.
-    *   `--noconsole`: Không hiển thị cửa sổ console đen khi chạy ứng dụng.
-    *   `--uac-admin`: Yêu cầu quyền Administrator khi chạy EXE trên Windows (sẽ hiển thị User Account Control - UAC prompt). Rất quan trọng vì ứng dụng này cần quyền admin để thao tác ARP.
-    *   `--icon=icon.png`: Đặt biểu tượng cho tệp EXE và cửa sổ ứng dụng từ `icon.png`.
-    *   `--add-data "icon.png;."`: Đảm bảo tệp `icon.png` được đóng gói bên trong EXE và có thể truy cập được bởi ứng dụng trong thời gian chạy.
-
-4.  **Kiểm tra tệp EXE:** Sau khi quá trình hoàn tất, bạn sẽ tìm thấy tệp `.exe` trong thư mục `dist` (ví dụ: `dist/lock_arp_gui.exe`). Bạn có thể sao chép tệp này sang máy tính Windows khác và chạy mà không cần cài đặt gì thêm.
-
----
-
 ## 🤝 Đóng góp
 
 Mọi đóng góp, báo cáo lỗi hoặc đề xuất cải tiến đều được hoan nghênh! Vui lòng mở một Issue hoặc tạo Pull Request trên kho lưu trữ (nếu có) của dự án này.
@@ -112,12 +72,6 @@ Mọi đóng góp, báo cáo lỗi hoặc đề xuất cải tiến đều đư�
 
 ## 📄 Giấy phép (License)
 
-Ứng dụng này được phát hành dưới giấy phép MIT. Xem tệp `LICENSE` (nếu có) để biết thêm chi tiết.
+Ứng dụng này được phát hành dưới giấy phép MIT. Xem tệp `LICENSE` để biết thêm chi tiết.
 
 ---
-
-## 📞 Liên hệ
-
-*   **Tên của bạn/Tổ chức:** [Điền tên của bạn hoặc tên tổ chức của bạn vào đây]
-*   **Email (tùy chọn):** [Điền email của bạn vào đây]
-*   **Website/GitHub (tùy chọn):** [Điền link GitHub hoặc website của bạn vào đây]
